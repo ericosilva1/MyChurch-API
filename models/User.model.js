@@ -18,7 +18,7 @@ const userSchema = new Schema(
            type: String,
            required: true,
        },
-       imageUrl: {
+       image: {
            type: String
        },
        children: [{ type: Schema.Types.ObjectId, ref: 'Child'}]
