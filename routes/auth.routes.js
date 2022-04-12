@@ -20,17 +20,17 @@ router.post('/signup', async (req, res) => {
         }
         
         const salt = bcrypt.genSaltSync(12);
-        const hash = bcrypt.hashSync(password, salt);
+        const passwordHash = bcrypt.hashSync(password, salt);
         
         const newUser = await User.create({
             name,
             email,
-            password: passwordHash
+            passwordHash
         })
         
-        res.status(201).jason({ user: newUser.name, email: newUser.email});
+        res.status(201).json({ user: newUser.name, email: newUser.email});
     } catch (error) {
-        res.status(500).json(erro.message);
+        res.status(500).json(error.message);
     }
 
 })
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
         res.status(200).json({user: payload, token: token});
 
     } catch (error) {
-        res.status(500).json({ error: error.message })
+        res.status(500).json(erro.message);
     }
 })
 
