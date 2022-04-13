@@ -15,6 +15,10 @@ const childSchema = new Schema({
         user: {
             type: Schema.Types.ObjectId,
             ref: 'User'
+        },
+        gender: {
+            type: String,
+            required: true
         }
     },
     {

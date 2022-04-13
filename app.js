@@ -14,6 +14,8 @@ app.use('/auth', require('./routes/auth.routes'));
 
 app.use(require('./middlewares/auth.middleware'));
 
+app.use('/children', require('./routes/child.routes'));
+
 
 
 app.listen(process.env.PORT, () => {

@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {
     try {
-        const bearer = req.get('Autorization');
+        const bearer = req.get('Authorization');
         if(!bearer){
             const error = new Error('Token not found');
             error.status = 400;
