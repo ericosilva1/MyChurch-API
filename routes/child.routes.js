@@ -16,6 +16,17 @@ router.get('/', async (req, res) => {
 })
 
 
+router.get('/:childId', async (req, res) => {
+  const { childId } = req.params;
+  try {
+      const child = await Child.findById(childId);;
+      res.status(200).json(child);
+  } catch (error) {
+      res.status(500).json({ message: "Error while trying to get a child", error})
+  }
+})
+
+
 router.post('/', async (req, res) => {
   try {
     const userId = req.user.id;
