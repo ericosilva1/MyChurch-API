@@ -18,6 +18,8 @@ app.use('/children', require('./routes/child.routes'));
 
 app.use('/rooms', require('./routes/room.routes'));
 
+app.use('/checkin', require('./routes/inputOutput.routes'))
+
 app.listen(process.env.PORT, () => {
     console.log('Server listening on port ' + process.env.PORT)
 })
