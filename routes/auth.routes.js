@@ -39,15 +39,15 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         const userFromDB = await User.findOne({ email });
-
+       
         if(!userFromDB){
-            throw new Error('Invalid username or password');
+            throw new Error('Invalid username or password1');
         }
 
         const verificationdHash = bcrypt.compareSync(password, userFromDB.passwordHash);
 
         if(!verificationdHash){
-            throw new Error('Invalid username or password')
+            throw new Error('Invalid username or password2')
         }
 
         const payload ={
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
         res.status(200).json({user: payload, token: token});
 
     } catch (error) {
-        res.status(500).json(erro.message);
+        res.status(500).json(error.message);
     }
 })
 

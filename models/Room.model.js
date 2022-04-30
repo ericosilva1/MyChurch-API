@@ -5,8 +5,12 @@ const roomSchema = new Schema({
             type: String,
             required: true,
         },
-        desription: {
-            type: String,
+        maxAge: {
+            type: Number,
+            required: true,
+        },
+        minAge: {
+            type: Number,
             required: true,
         },
         children: [
