@@ -53,7 +53,7 @@ router.delete('/:roomId', async (req, res) => {
     const { roomId } = req.params
     try {
         await Room.findByIdAndDelete(roomId)
-        await Child.remove({ roomId })
+        // await Child.remove({ roomId })
         res.status(204).json()
     } catch (error) {
         res.status(500).json({ message: "Error while trying to delete a room", error})
